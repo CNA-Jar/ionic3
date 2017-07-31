@@ -1,10 +1,10 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
-import { BaseService } from '../../service/services';
+import { BaseService } from '../../../service/services';
 
 @Injectable()
 
-export class MovieServices extends BaseService implements OnInit {
+export class MovieDetailsServices extends BaseService implements OnInit {
 	private _url: string;
 	constructor(public http: Http) {
 		super(http);
@@ -18,17 +18,17 @@ export class MovieServices extends BaseService implements OnInit {
 	 * @version v1.0.0
 	 * @return  {Promise<any>} [description]
 	 */
-	getDetail(): Promise<any> {
-		this._url = 'system/rest/issue_extend/list';
-		const _params = {
-			pagingTool: {
-				currentPage: 0,
-				pageSize: -1
-			}
-		};
-		this.params = JSON.stringify(_params);
+	getDetail(id: string): Promise<any> {
+		this._url = 'system/rest/issue_extend/'+id;
+		// const _params = {
+		// 	pagingTool: {
+		// 		currentPage: 0,
+		// 		pageSize: -1
+		// 	}
+		// };
+		// this.params = JSON.stringify(_params);
 
-		return this.postRquest(this._url);
+		return this.getRquest(this._url);
 	}
 
 	ngOnInit() {

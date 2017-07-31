@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { Cookie } from 'ng2-cookies';
 import 'rxjs/add/operator/toPromise';
 

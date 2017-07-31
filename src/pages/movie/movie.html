@@ -12,7 +12,7 @@
 	    </ion-thumbnail>
 	    <h2>{{item.issueCode}}</h2>
 	    <p>{{item.shortDesc}}</p>
-	    <button ion-button clear item-end>View</button>
+	    <button ion-button clear item-end (click)="getMovieDetail(item.id)">View</button>
 	  </ion-item>
 	</ion-list>
 </ion-content>

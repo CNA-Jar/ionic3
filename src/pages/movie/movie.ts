@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieServices } from './movie.services';
+import { NavController } from 'ionic-angular';
+import { MovieDetails } from './movie-details/movieDetails';
 
 @Component({
 	selector: 'movie-page',
@@ -10,10 +12,11 @@ import { MovieServices } from './movie.services';
 export class MoviePage implements OnInit{
 	list = []
 
-	constructor(private movieServices: MovieServices) {}
+	constructor(public navCtrl: NavController, 
+	private movieServices: MovieServices) {}
 
 	ngOnInit() {
-		this.getMovieDetail();
+		this.getMoviesDetail();
 	}
 
 	/**
@@ -23,12 +26,19 @@ export class MoviePage implements OnInit{
 	 * @return  {[type]}
 	 * @version v1.0.0
 	 */
-	getMovieDetail() {
+	getMoviesDetail() {
 		this.movieServices.getDetail().then( data => {
 			console.log(data);
 			this.list = data;
 		}).catch( (err: Response) => {
 			console.log(err);
+		});
+	}
+
+	getMovieDetail(id: string) {
+		console.log(id);
+		this.navCtrl.push(MovieDetails, {
+			id: id
 		});
 	}
 
