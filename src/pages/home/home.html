@@ -5,13 +5,23 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
+  <p class="t-center">
+    <ion-icon class="t-red t-s30" name="logo-angular"></ion-icon>
   </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <ion-list>
+    <ion-item>
+      <ion-label color="primary">
+        <ion-icon name="logo-angular"></ion-icon>
+      </ion-label>
+      <ion-input placeholder="Account" [(ngModel)]="user.account"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">
+        <ion-icon name="ios-lock"></ion-icon>
+      </ion-label>
+      <ion-input type="password" placeholder="Password" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+    <button class="m40" ion-button full (click)="login()">Login</button>
+  </ion-list>
 </ion-content>

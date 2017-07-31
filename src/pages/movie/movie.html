@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Movies</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-list>
+	  <ion-item *ngFor="let item of list">
+	    <ion-thumbnail class="p10 center" item-start>
+	      <ion-icon class="t-s40" name="ios-man"></ion-icon>
+	    </ion-thumbnail>
+	    <h2>{{item.issueCode}}</h2>
+	    <p>{{item.shortDesc}}</p>
+	    <button ion-button clear item-end>View</button>
+	  </ion-item>
+	</ion-list>
+</ion-content>
