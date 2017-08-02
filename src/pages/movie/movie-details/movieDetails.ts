@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { NavParams } from 'ionic-angular';
 import { MovieDetailsServices } from './movieDetails.services';
+import { AmChart } from '../../../service/amCharts/amCharts';
 
 @Component({
 	selector: 'movie-details',
 	templateUrl: 'movie-details.html',
-	providers: [ MovieDetailsServices ]
+	providers: [ MovieDetailsServices, AmChart ]
 })
 
 export class MovieDetails implements OnInit{
