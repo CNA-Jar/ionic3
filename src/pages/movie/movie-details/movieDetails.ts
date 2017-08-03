@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { NavParams } from 'ionic-angular';
 import { MovieDetailsServices } from './movieDetails.services';
-import { AmChart } from '../../../service/amCharts/amCharts';
 
 @Component({
 	selector: 'movie-details',
 	templateUrl: 'movie-details.html',
-	providers: [ MovieDetailsServices, AmChart ]
+	providers: [ MovieDetailsServices ]
 })
 
 export class MovieDetails implements OnInit{
+	itemObj = {}
 	constructor(private navParams: NavParams,
 		private movieDetailsServices: MovieDetailsServices) {}
 
@@ -21,6 +21,7 @@ export class MovieDetails implements OnInit{
 	getMovieDetails(id: string) {
 		this.movieDetailsServices.getDetail(id).then( data => {
 			console.log(data);
+			this.itemObj = data;
 		}).catch( (err: Response) => {
 			console.log(err);
 		})

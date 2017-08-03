@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieServices } from './movie.services';
-import { NavController } from 'ionic-angular';
+import { NavController, Refresher } from 'ionic-angular';
 import { MovieDetails } from './movie-details/movieDetails';
+import * as _ from 'lodash';
 
 @Component({
 	selector: 'movie-page',
@@ -11,6 +12,7 @@ import { MovieDetails } from './movie-details/movieDetails';
 
 export class MoviePage implements OnInit{
 	list = []
+	data = []
 
 	constructor(public navCtrl: NavController, 
 	private movieServices: MovieServices) {}
@@ -28,8 +30,8 @@ export class MoviePage implements OnInit{
 	 */
 	getMoviesDetail() {
 		this.movieServices.getDetail().then( data => {
-			console.log(data);
-			this.list = data;
+			this.list = _.slice(data, 0, 6);
+			this.data = data;
 		}).catch( (err: Response) => {
 			console.log(err);
 		});
@@ -41,5 +43,18 @@ export class MoviePage implements OnInit{
 			id: id
 		});
 	}
+
+	doRefresh(refresher: Refresher) {
+		const list = _.slice(this.data, 7, 13);
+		this.list.push(list);
+		console.log(list);
+		setTimeout(() => {
+			refresher.complete();
+		}, 1000);
+	}
+
+	doPulling(refresher: Refresher) {
+    console.log('DOPULLING', refresher.progress);
+  }
 
 }

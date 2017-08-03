@@ -5,5 +5,22 @@
 </ion-header>
 
 <ion-content>
-	<amchart></amchart>
+	<ion-list>
+	  <ion-item>
+	    <ion-label color="primary">Assignee</ion-label>
+	    <ion-input placeholder="Text Input" [(ngModel)]="itemObj.assigneeValue" readonly></ion-input>
+	  </ion-item>
+	  <ion-item>
+	    <ion-label color="primary">IssueCode</ion-label>
+	    <ion-input placeholder="Text Input" [(ngModel)]="itemObj.issueCode" readonly></ion-input>
+	  </ion-item>
+	  <ion-item>
+	    <ion-label color="primary">IssueLevel</ion-label>
+	    <ion-input placeholder="Text Input" [(ngModel)]="itemObj.issueLevelValue" readonly></ion-input>
+	  </ion-item>
+	  <ion-item>
+	    <ion-label color="primary">IssueDesc</ion-label>
+	    <ion-input placeholder="Text Input" [(ngModel)]="itemObj.shortDesc" readonly></ion-input>
+	  </ion-item>
+  </ion-list>
 </ion-content>

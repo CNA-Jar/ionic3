@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-navbar>
+  <ion-toolbar>
     <ion-title>Movies</ion-title>
-  </ion-navbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -15,4 +15,10 @@
 	    <button ion-button clear item-end (click)="getMovieDetail(item.id)">View</button>
 	  </ion-item>
 	</ion-list>
+	 <ion-refresher (ionRefresh)="doRefresh($event)" (ionPull)="doPulling($event)">
+    <ion-refresher-content
+      pullingText="Pull to refresh..."
+      refreshingText="Loading...">
+    </ion-refresher-content>
+  </ion-refresher>
 </ion-content>
